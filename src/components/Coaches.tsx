@@ -47,7 +47,7 @@ export default function Coaches() {
         </div>
 
         {activeTab === "founders" ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {FOUNDERS.map((founder) => (
               <div key={founder.id} className="bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200">
                 <div className="w-16 h-16 rounded-full bg-[#1E3A8A] flex items-center justify-center text-white font-black text-lg mb-4">

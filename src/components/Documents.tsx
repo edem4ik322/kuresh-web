@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { FileText, Download, Eye, EyeOff, BookOpen } from "lucide-react";
 import { APP_DOCUMENTS } from "../data";
-import { AppDocument } from "../types";
+import type { AppDocument } from "../types";
+
+function getDownloadUrl(doc: AppDocument): string | undefined {
+  if (doc.downloadUrl && !doc.isPlaceholderUrl) return doc.downloadUrl;
+  return undefined;
+}
 
 export default function Documents() {
   const [previewDoc, setPreviewDoc] = useState<AppDocument | null>(null);
@@ -47,6 +52,16 @@ export default function Documents() {
                   <Eye size={16} />
                   Читать устав
                 </button>
+                {getDownloadUrl(mainCharter) && (
+                  <a
+                    href={getDownloadUrl(mainCharter)}
+                    download
+                    className="px-5 py-2.5 bg-white text-[#1E3A8A] border-2 border-[#1E3A8A] rounded-xl text-sm font-bold hover:bg-blue-50 transition-colors flex items-center gap-2"
+                  >
+                    <Download size={16} />
+                    Скачать PDF
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -81,6 +96,16 @@ export default function Documents() {
                   <Eye size={12} />
                   Просмотр
                 </button>
+                {getDownloadUrl(doc) && (
+                  <a
+                    href={getDownloadUrl(doc)}
+                    download
+                    className="px-3 py-2 rounded-xl bg-[#1E3A8A]/10 text-[#1E3A8A] hover:bg-[#1E3A8A] hover:text-white text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer"
+                  >
+                    <Download size={12} />
+                    Скачать
+                  </a>
+                )}
               </div>
             </div>
           ))}
@@ -144,12 +169,24 @@ export default function Documents() {
                 <span className="text-xs text-slate-400 font-semibold">
                   Формат: {previewDoc.docType.toUpperCase()}
                 </span>
-                <button
-                  onClick={() => setPreviewDoc(null)}
-                  className="px-4 py-2 bg-white hover:bg-slate-50 rounded-xl text-xs font-bold text-slate-600 transition-colors border border-slate-200 cursor-pointer"
-                >
-                  Закрыть
-                </button>
+                <div className="flex gap-2">
+                  {getDownloadUrl(previewDoc) && (
+                    <a
+                      href={getDownloadUrl(previewDoc)}
+                      download
+                      className="px-4 py-2 bg-[#1E3A8A] text-white hover:bg-blue-800 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <Download size={14} />
+                      Скачать файл
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setPreviewDoc(null)}
+                    className="px-4 py-2 bg-white hover:bg-slate-50 rounded-xl text-xs font-bold text-slate-600 transition-colors border border-slate-200 cursor-pointer"
+                  >
+                    Закрыть
+                  </button>
+                </div>
               </div>
             </div>
           </div>
