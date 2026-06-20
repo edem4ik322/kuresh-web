@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 export interface ScheduleDay {
   day: string;
   hours: string;
@@ -14,10 +9,24 @@ export interface Discipline {
   name: string;
   originalName?: string;
   description: string;
-  iconName: string; // Lucide icon name
+  iconName: string;
   ageGroup: string;
   coaches: string[];
   benefits: string[];
+}
+
+export interface Founder {
+  id: string;
+  name: string;
+  role: string;
+  description: string;
+}
+
+export interface Goal {
+  id: string;
+  title: string;
+  description: string;
+  iconName: string;
 }
 
 export interface Coach {
@@ -27,15 +36,6 @@ export interface Coach {
   experience: string;
   achievements: string[];
   photoUrl: string;
-}
-
-export interface NewsItem {
-  id: string;
-  title: string;
-  summary: string;
-  date: string;
-  category: "news" | "event" | "announcement";
-  imageUrl: string;
 }
 
 export interface AppDocument {

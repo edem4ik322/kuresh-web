@@ -1,11 +1,6 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState, useEffect } from "react";
-import { Phone, MapPin, Menu, X, Trophy } from "lucide-react";
-import { CONTACT_INFO } from "../data";
+import { Menu, X } from "lucide-react";
+import { FEDERATION } from "../data";
 
 interface HeaderProps {
   activeSection: string;
@@ -25,11 +20,12 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
   }, []);
 
   const navItems = [
-    { id: "about", label: "О школе" },
+    { id: "about", label: "О нас" },
+    { id: "goals", label: "Цели" },
+    { id: "founders", label: "Учредители" },
+    { id: "charter", label: "Устав" },
     { id: "disciplines", label: "Секции" },
-    { id: "coaches", label: "Тренеры" },
-    { id: "documents", label: "Документы" },
-    { id: "enroll", label: "Запись в школу" },
+    { id: "contacts", label: "Контакты" },
   ];
 
   const handleNavClick = (id: string) => {
@@ -43,7 +39,6 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
 
   return (
     <header
-      id="app-header"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-md border-b border-slate-200 py-3"
@@ -52,72 +47,43 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Title */}
           <div
-            id="header-logo-container"
             className="flex items-center gap-2 sm:gap-3 cursor-pointer flex-shrink-0"
             onClick={() => handleNavClick("about")}
           >
-            <div id="school-crest-icon" className="w-10 h-10 sm:w-11 sm:h-11 bg-[#1E3A8A] rounded-full flex items-center justify-center text-white shadow-md flex-shrink-0">
-              <Trophy size={18} className="animate-pulse" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#1E3A8A] rounded-full flex items-center justify-center text-white shadow-md flex-shrink-0">
+              <span className="text-sm font-black">К</span>
             </div>
-            <div>
-              <span id="school-logo-title" className="block text-sm sm:text-base lg:text-sm xl:text-lg font-extrabold tracking-tight text-[#1E3A8A] whitespace-nowrap">
-                <span className="sm:hidden">{CONTACT_INFO.shortName}</span>
-                <span className="hidden sm:inline">{CONTACT_INFO.name}</span>
+            <div className="hidden sm:block">
+              <span className="block text-sm font-extrabold tracking-tight text-[#1E3A8A]">
+                Къушакъ куреши
               </span>
-              <span id="school-logo-subtitle" className="block text-[10px] text-slate-500 uppercase tracking-widest font-semibold leading-none mt-0.5">
-                Симферополь, Крым
+              <span className="block text-[9px] text-slate-500 uppercase tracking-widest font-semibold leading-none mt-0.5">
+                Крымская федерация
               </span>
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav id="desktop-nav" className="hidden lg:flex items-center lg:gap-1.5 xl:gap-4.5 flex-shrink-0">
+          <nav className="hidden lg:flex items-center gap-1 flex-shrink-0">
             {navItems.map((item) => (
               <button
                 key={item.id}
-                id={`nav-link-${item.id}`}
                 onClick={() => handleNavClick(item.id)}
-                className={`transition-all relative py-1.5 px-0.5 cursor-pointer lg:text-xs xl:text-sm font-bold whitespace-nowrap ${
+                className={`transition-all relative py-1.5 px-3 text-sm font-bold whitespace-nowrap cursor-pointer rounded-lg ${
                   activeSection === item.id
-                    ? "text-[#1E3A8A] font-extrabold"
-                    : "text-slate-600 hover:text-[#1E3A8A]"
+                    ? "text-[#1E3A8A] bg-blue-50"
+                    : "text-slate-600 hover:text-[#1E3A8A] hover:bg-slate-50"
                 }`}
               >
                 {item.label}
-                {activeSection === item.id && (
-                  <div
-                    id={`active-nav-indicator-${item.id}`}
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#1E3A8A] rounded-full"
-                  />
-                )}
               </button>
             ))}
           </nav>
 
-          {/* Contact Details (Desktop) */}
-          <div id="header-contacts-desktop" className="hidden lg:flex items-center lg:gap-2 xl:gap-4 flex-shrink-0">
-            <a
-              id="header-phone-link"
-              href={`tel:${CONTACT_INFO.phone.replace(/[^0-9+]/g, "")}`}
-              className="flex items-center gap-2 text-[#1E3A8A] hover:text-blue-800 lg:text-xs xl:text-sm font-bold transition-colors border-r border-slate-200 lg:pr-3 xl:pr-5 whitespace-nowrap flex-shrink-0"
-            >
-              <Phone size={14} className="text-[#1E3A8A] flex-shrink-0" />
-              <span>{CONTACT_INFO.phone}</span>
-            </a>
-            <div id="header-address-tag" className="hidden xl:flex items-center gap-1.5 text-slate-500 text-xs font-semibold whitespace-nowrap">
-              <MapPin size={14} className="text-slate-400 flex-shrink-0" />
-              <span>ул. Севастопольская, 156</span>
-            </div>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div id="mobile-menu-trigger" className="lg:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              id="mobile-nav-toggle"
-              className="p-2 rounded-lg text-slate-600 hover:text-[#1E3A8A] hover:bg-slate-100 focus:outline-none cursor-pointer"
+              className="p-2 rounded-lg text-slate-600 hover:text-[#1E3A8A] hover:bg-slate-100 cursor-pointer"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -125,14 +91,12 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
         </div>
       </div>
 
-      {/* Mobile Menu Panel */}
       {isMenuOpen && (
-        <div id="mobile-nav-panel" className="lg:hidden bg-white border-b border-slate-200 animate-fadeIn shadow-lg">
-          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+        <div className="lg:hidden bg-white border-b border-slate-200 shadow-lg">
+          <div className="px-2 pt-2 pb-4 space-y-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
-                id={`mobile-nav-link-${item.id}`}
                 onClick={() => handleNavClick(item.id)}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium border-l-4 transition-all cursor-pointer ${
                   activeSection === item.id
@@ -143,20 +107,6 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 {item.label}
               </button>
             ))}
-            <div id="mobile-nav-contacts" className="border-t border-slate-200 pt-4 pb-2 px-4 space-y-3">
-              <a
-                id="mobile-nav-phone-link"
-                href={`tel:${CONTACT_INFO.phone.replace(/[^0-9+]/g, "")}`}
-                className="flex items-center gap-3 text-[#1E3A8A] text-sm py-1.5"
-              >
-                <Phone size={18} className="text-[#1E3A8A]" />
-                <span className="font-bold">{CONTACT_INFO.phone}</span>
-              </a>
-              <div id="mobile-nav-address-tag" className="flex items-center gap-3 text-slate-500 text-xs font-semibold">
-                <MapPin size={16} className="text-slate-400" />
-                <span>{CONTACT_INFO.address}</span>
-              </div>
-            </div>
           </div>
         </div>
       )}
