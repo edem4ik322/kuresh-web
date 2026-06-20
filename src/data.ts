@@ -77,7 +77,7 @@ export const DISCIPLINES: Discipline[] = [
     name: "Борьба на поясах «Къушакъ куреши»",
     originalName: "Quşaq Kureşi",
     description: "Национальная крымскотатарская борьба на матерчатых поясах. Тренирует координацию, взрывную силу, выносливость и развивает уважение к сопернику согласно древним традициям.",
-    iconName: "Sword",
+    iconName: "Swords",
     ageGroup: "Дети с 8 лет, юноши, взрослые",
     coaches: ["Сеидамет Ягъяев Аметович", "Муртазаев Энвер Сеит-Халилович"],
     benefits: [
@@ -92,7 +92,7 @@ export const DISCIPLINES: Discipline[] = [
     name: "Борьба на лошадях «Авдарма»",
     originalName: "Avdarma",
     description: "Древний вид конного единоборства, требующий исключительного баланса, слияния с лошадью и тактического мышления.",
-    iconName: "Shield",
+    iconName: "Sword",
     ageGroup: "Юноши с 14 лет (после базовой конной подготовки)",
     coaches: ["Эминов Сейтмемет Нусретович", "Сеидамет Ягъяев Аметович"],
     benefits: [
@@ -132,7 +132,7 @@ export const DISCIPLINES: Discipline[] = [
     id: "historical_fencing",
     name: "Историческое фехтование",
     description: "Искусство ведения поединков на репликах исторического холодного оружия.",
-    iconName: "Zap",
+    iconName: "Shield",
     ageGroup: "Мальчики и девочки с 12 лет",
     coaches: ["Аблаев Рустем Ризаевич"],
     benefits: [
@@ -145,7 +145,7 @@ export const DISCIPLINES: Discipline[] = [
     id: "shepherd_fencing",
     name: "Фехтование на пастушьих палках",
     description: "Традиционное крымскотатарское боевое искусство ведения боя на учебных пастушьих палках.",
-    iconName: "Zap",
+    iconName: "Crosshair",
     ageGroup: "Мальчики и девочки с 12 лет",
     coaches: ["Аблаев Рустем Ризаевич"],
     benefits: [
@@ -158,7 +158,7 @@ export const DISCIPLINES: Discipline[] = [
     id: "weightlifting",
     name: "Силовые дисциплины и подъем тяжестей",
     description: "Обучение базовым техникам подъема свободных весов и традиционных камней. Формирование богатырской силы.",
-    iconName: "Award",
+    iconName: "Dumbbell",
     ageGroup: "Юноши с 14 лет",
     coaches: ["Муртазаев Энвер Сеит-Халилович"],
     benefits: [
@@ -171,7 +171,7 @@ export const DISCIPLINES: Discipline[] = [
     id: "stone_throwing",
     name: "Метание камней",
     description: "Традиционная силовая дисциплина крымскотатарских богатырей на дальность и меткость.",
-    iconName: "Award",
+    iconName: "Weight",
     ageGroup: "Юноши с 14 лет и взрослые",
     coaches: [],
     benefits: [
