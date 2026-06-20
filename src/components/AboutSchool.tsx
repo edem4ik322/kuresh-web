@@ -14,7 +14,7 @@ export default function AboutSchool() {
     <section id="about" className="relative pt-24 pb-16 overflow-hidden bg-[#F8FAFC] text-slate-800">
       {/* Hero Section Container */}
       <div id="hero-banner-container" className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 mb-12">
-        <div id="hero-inner" className="relative h-[480px] sm:h-[540px] rounded-3xl overflow-hidden shadow-xl border border-slate-200/60 bg-slate-900">
+        <div id="hero-inner" className="relative min-h-[480px] sm:h-[540px] rounded-3xl overflow-hidden shadow-xl border border-slate-200/60 bg-slate-900 flex flex-col justify-end">
           {/* Background image covering whole banner */}
           <div id="hero-bg-overlay" className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-transparent z-10" />
           <img
@@ -25,7 +25,7 @@ export default function AboutSchool() {
           />
 
           {/* Hero text overlay content */}
-          <div id="hero-text-content" className="absolute inset-x-0 bottom-0 p-6 sm:p-12 z-20 flex flex-col justify-end h-full">
+          <div id="hero-text-content" className="relative p-6 sm:p-12 z-20 flex flex-col justify-end w-full mt-auto">
             <div id="hero-badges" className="flex flex-wrap gap-2 mb-4">
               <span id="badge-gov" className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-orange-500 text-slate-950 uppercase tracking-wider">
                 <Landmark size={12} />
@@ -47,7 +47,7 @@ export default function AboutSchool() {
               <span className="text-orange-400 font-bold"> «Къушакъ куреши»</span>, конного спорта и атлетики.
             </p>
 
-            <div id="hero-quick-stats" className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/10">
+            <div id="hero-quick-stats" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/10">
               <div id="stat-1" className="flex flex-col">
                 <span className="text-2xl sm:text-3xl font-extrabold text-orange-400">Симферополь</span>
                 <span className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-0.5">Локация Базы</span>

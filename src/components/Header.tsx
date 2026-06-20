@@ -63,7 +63,8 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             </div>
             <div>
               <span id="school-logo-title" className="block text-sm sm:text-base lg:text-sm xl:text-lg font-extrabold tracking-tight text-[#1E3A8A] whitespace-nowrap">
-                ГБУ РК «Спортивная школа № 1»
+                <span className="sm:hidden">{CONTACT_INFO.shortName}</span>
+                <span className="hidden sm:inline">{CONTACT_INFO.name}</span>
               </span>
               <span id="school-logo-subtitle" className="block text-[10px] text-slate-500 uppercase tracking-widest font-semibold leading-none mt-0.5">
                 Симферополь, Крым
